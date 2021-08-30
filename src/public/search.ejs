@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Forms</title>
+</head>
+<body>
+  <div class="search-part">
+    <input type="search" class="search-on-user" placeholder="جستوجو در بین کاربران"><br>
+    <!-- <p>برای سرچ اینتر را فشار دهید</p> -->
+  </div>
+  <hr>
+  <div class="search-result">
+    <% users.forEach(user => { %>
+      <% userPage = "/pages/" + user.username %>
+      <a href=<% userPage %>><% user.username %></a><br>
+    <% }) %>
+  </div>
+</body>
+</html>

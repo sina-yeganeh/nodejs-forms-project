@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fa-IR" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../../css/style.css">
+  <title>Form 3</title>
+</head>
+<body>
+  <form action="/check-form-3" method="POST" class="form-three">
+    <h2 class="form-title">اطاعات عمومی</h2>
+    <div id="part-1">
+      <div>
+        <p>نام و نام خانوادگی</p>
+        <input type="text" placeholder="محمد محمدی" class="" name="fullname">
+        <p>سن</p>
+        <input type="text" placeholder="۲۵" class="" name="age">
+        <p>جنسیت</p>
+        <input type="text" placeholder="آقا" class="" name="gener">
+      </div>
+      <div class="part-1-2">
+        <p>شهر</p>
+        <input type="text" placeholder="تهران" class="" name="city">
+        <p>رشته تحصیلی</p>
+        <input type="text" placeholder="مهندسی کامپیوتر" class="" name="fos">
+        <p>مقطع</p>
+        <input type="text" placeholder="کارشناسی ارشد" class="" name="grade">
+      </div>
+    </div><hr class="form-3-hr">
+
+    <div id="part-2">
+      <div>
+        <p>شماره همراه</p>
+        <input type="text" placeholder="۰۹********" class="" name="number">
+      </div>
+      <div class="part-2-2">
+        <p>پست الکترونیک</p>
+        <input type="text" placeholder="example@example.com" class="" name="email">
+      </div>
+    </div><hr class="form-3-hr">
+
+    <div id="part-3">
+      <div>
+        <p>راه های ارتباطی</p>
+        <input type="text" placeholder="شماره همراه" class="" name="contact">
+        <p>زمان های آزاد</p>
+        <input type="text" placeholder="بعد از ظهر" class="" name="freetime">
+      </div>
+      <div class="part-3-2">
+        <p>بازه زمانی مورد نیاز</p>
+        <input type="text" placeholder="۲ ساعت" class="" name="freetimeInterval">
+        <p>موضوعات مورد علاقه</p>
+        <input type="text" placeholder="برنامه نویسی" class="" name="favSubject">
+      </div>
+      <div id="ref">
+        <p>منابع و مطالعات خود را نام ببرید</p>
+        <textarea name="ref"></textarea>
+      </div>
+    </div><hr class="form-3-hr">
+
+    <div id="part-4">
+      <div>
+        <p>چقدر برای یادگیری زبان انگلیسی مصمم هستید؟</p>
+        <input type="range" class="" name="range">
+      </div>
+      <div class="part-4-2">
+        <p>انگیزه شما برای یادگیری زبان انگلیسی چیست؟</p>
+
+        <label class="container">ارتقای شخصی
+          <input type="checkbox" checked="checked" name="personalUpgrade">
+          <span class="checkmark"></span>
+        </label><br>
+        
+        <label class="container">ارتقا جایگاه شغلی
+          <input type="checkbox" name="jobUpgrade">
+          <span class="checkmark"></span>
+        </label><br>
+        
+        <label class="container">مهاجرت
+          <input type="checkbox" name="migration">
+          <span class="checkmark"></span>
+        </label><br>
+        
+        <label class="container">آمادگی در آزمون های بین الملی
+          <input type="checkbox" name="readyToExam">
+          <span class="checkmark"></span>
+        </label><br>
+
+        <p>آیا تا به حال در آزمون های بین المللی شرکت کردید؟</p>
+        <input type="radio" placeholder="بله / خیر" class="" name="yesToExam">
+        <input type="radio" placeholder="بله / خیر" class="" name="noToExam">
+        <p>آیا تا به حال در آزمون های بین المللی ثبت نام کردید؟</p>
+        <input type="radio" placeholder="بله / خیر" class="" name="yesToSignin">
+        <input type="radio" placeholder="بله / خیر" class="" name="noToSignin">
+
+      </div>
+    </div><hr class="form-3-hr">
+    <p>اگر توضیحات کامل تری راجب انگیزتون دارید لطفا در کادر پایین ذکر فرمایید:</p>
+    <textarea name="motivation"></textarea>
+    <p>علاقه مند هستید معلم شما چه خصوصاتی رو داشته باشد؟</p>
+    <textarea name="teacher"></textarea><br><br>
+
+    <button class="next" type="submit">بعدی</button>
+  </form>
+</body>
+</html>

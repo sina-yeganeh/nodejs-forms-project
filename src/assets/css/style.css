@@ -1,0 +1,94 @@
+@font-face {
+  font-family: vazir;
+  src: url("../fonts/vazir/Vazir.ttf");
+}
+
+body {
+  font-family: vazir;
+}
+
+button {
+  font-family: vazir;
+  border-radius: 25px;
+  padding: 8px 10px;
+  border: none;
+  width: 120px;
+  cursor: pointer;
+  font-size: 17px;
+  outline: none;
+}
+
+input, textarea {
+  font-family: vazir;
+  border: lightgray solid 2px;
+  border-radius: 25px;
+  padding: 8px 15px;
+  outline: none;
+  transition: border 0.5s, width 1s;
+}
+
+input:focus, textarea:focus {
+  border: #2196F3 solid 2px;
+}
+
+form {
+  margin-right: 20vw;
+  margin-left: 20vw;
+}
+
+hr {
+  border: #2196F3 solid 1px;
+}
+
+.form-title {
+  color: #2196F3;
+}
+
+.next {
+  background-color: #2196F3;
+  color: white;
+  transition: 0.5s;
+}
+
+.next:hover {
+  opacity: 0.9;
+}
+
+#part-1 {
+  display: flex;
+}
+
+.part-1-2 {
+  margin-right: 10vw;
+}
+
+.form-3-hr {
+  margin-top: 20px;
+}
+
+#part-2 {
+  display: flex;
+}
+
+.part-2-2 {
+  margin-right: 10vw;
+}
+
+#ref {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.search-part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-on-user {
+  text-align: center;
+}
+
+.search-on-user:focus {
+  box-shadow: #2196F3 2px 2px 1px;
+}
