@@ -1,5 +1,6 @@
 const express = require('express')
 const session = require('express-session')
+const upload = require('express-fileupload')
 const mysql = require('mysql')
 const path = require('path')
 
@@ -42,6 +43,14 @@ server.post("/check-form-1", (req, resp) => {
   session.vocab = req.body.vocab
   session.conver = req.body.conver
 
+  resp.redirect("/form-2")
+})
+
+server.get("/form-2", (req, resp) => {
+  resp.render(path.join(__dirname, "public/forms/form_2.ejs"))
+})
+
+server.post("/check-form-2", (req, resp) => {
   resp.redirect("/form-3")
 })
 
@@ -90,6 +99,26 @@ server.get("/form-4", (req, resp) => {
   }
 })
 
+server.post("/upload", (req, resp) => {
+  var filePath
+  var file
+
+  file1 = req.files.historyOfExam
+  file2 = req.files.examSignupPic
+  filePath1 = __dirname + "./assets/img/files" + file1
+  filePath2 = __dirname + "./assets/img/files" + file2
+
+  file1.mv(filePath1, (err) => {
+    if (err) console.error(`can't upload file:${err}`);
+    else console.log(`upload file succssfuly!`);
+  })
+
+  file2.mv(filePath2, (err) => {
+    if (err) console.error(`can't upload file:${err}`);
+    else console.log(`upload file succssfuly!`);
+  })
+})
+
 server.post("/check-form-4", (req, resp) => {
   session.mak = req.body.mak
   session.general = req.body.general
@@ -101,7 +130,13 @@ server.post("/check-form-4", (req, resp) => {
   session.readingRank = req.body.readingRank
   session.writingRank = req.body.writingRank
   session.speakingRank = req.body.speakingRank
-  session.UploadExamPic = req.body.UploadExamPic
+
+  var file = req.files.UploadExamPic
+
+  file.mv(__dirname + "./assets/img/files" + file.name, (err) => {
+    if (err) console.error(`can't upload file:${err}`);
+    else console.log(`upload file succssfuly!`);
+  })
 
   resp.redirect("/form-5")
 })
@@ -153,17 +188,29 @@ server.get("/", (req, resp) => {
 })
 
 server.post("/search-in-database", (req, resp) => {
-  session.userToSearch = req.body.userToSearch
+  session.searchWord = req.body.searchWord
 
   resp.redirect("/search")
 })
 
 server.get("/search", (req, resp) => {
-  database.query("SELECT * FROM `Users` WHERE username = ?", [session.userToSearch], (err, result, _) => {
+  database.query("SELECT * FROM `Users` WHERE city = ?", [session.searchWord], (err, result, _) => {
     if (err) console.error(`can't select users from users:${err}`)
     else resp.render(path.join(__dirname, "public", "search.ejs"), {
       users: result
     })
+  })
+})
+
+server.get("/pages/:user", (req, resp) => {
+  username = req.params.user
+  database.query("SELECT * FROM `Users` WHERE username = ?", [username], (err, result) => {
+    if (err) console.error(`can't select user tabel:${err}`);
+    else {
+      resp.render(path.join(__dirname, "public", "user.ejs"), {
+        user: result
+      })
+    }
   })
 })
 
